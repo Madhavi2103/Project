@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--<link rel="stylesheet" href="home(1).css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        .bgimg {
+            background-color:aqua;
+            /*background-image: url("https://c4.wallpaperflare.com/wallpaper/704/217/93/future-bus-computer-desktop-background-wallpaper-preview.jpg");*/
+        }
+        .carding {
+            text-align: center;
+            background-color: white;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #e5eaf4;
+            border-radius: 16px;
+        }
+        .home {
+            margin-left: 30rem;
+            /*margin-top: 25px;*/
+        }
+        .head1 {
+            margin-top: none;
+            color: green;
+        }
+        .head2{
+            color: green;
+        }
+        .para{
+            /*margin-left: 10rem;*/
+            color: black;
+        }
+        .head3{
+            color: blue;
+            padding-left: 700px;
+            font-size: 25px;
+        }
+        .gool {
+            margin-left: 43rem; 
+            color: white; 
+            background-color: navy;
+            /*border: none;*/
+            border-radius: 12px;
+            padding: 4px;
+        }
+        .gool:hover {
+            color: navy;
+            background-color: white;
+        }
+        .nav {
+			background-color: skyblue;
+			/*color: skyblue;*/
+		}
+        #go {
+			color: navy;
+			/*padding: 5%;*/
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 120%;
+			padding: 5%;
+			margin-left: 4rem;
+		}
+		#go:hover {
+			color: white;
+			background-color: navy;
+		}
+        .navgool {
+			margin-left: 43rem;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 130%;
+			background-color: navy;
+			/*border: none;*/
+			color: white;
+			/*margin: 4px 2px;*/
+			border-radius: 12px;
+		}
+		.navgool:hover {
+			/*transform: scale(1.5);*/
+			background-color: white;
+			color: navy;
+		}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">
+                <h1>Bus booking</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="{{url_for('index1')}}" id="go">Home</a>
+                <!--<a class="nav-link" href="#" id="go">Features</a>-->
+                <a class="nav-link" href="{{url_for('payment')}}" id="go">BookNow</a>
+                <!--<a class="nav-link" href="#" id="go">Disabled</a>-->
+              </div>
+            </div>
+                <a href="{{url_for('login')}}" target="_self"><button class="navgool">Login&nbsp;&nbsp;<i class="fa-solid fa-right-to-bracket"></i></button></a>
+        </nav>
+    </div>
+    <!--<div class="alert alert-light shadow mt-5" role="alert" >
+        <div class="col1 column-left-bustrack-icon" ng-class="{'bustrack-icon':pvtService.is_track_avail==1,'bustrack-icon-disabled':pvtService.is_track_avail ==0}">
+            <div class="dot-icon-section">
+                <div class="dot-icon-top">
+                    <span>.</span>
+                </div>
+                <div class="arrow-icon-center">
+                    <span><i class="fa-light fa-arrow-down"></i></span>
+                </div>
+                <div class="dot-icon-bottom">
+                    <span>.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col2 column-middle">
+            <div class="search-column1">
+                <h2 class="TravelAgntNm ng-binding" data-safetymapid="114968" title="Orange Tours and Travels" data-bustypemapid="2,3,4">Orange Tours and Travels</h2>
+                <p class="BsTyp ng-binding" title="NON-AC Seater/Sleeper (2+1)" data-bustype="NON-AC-SLEEPER">NON-AC Seater/Sleeper (2+1)</p>
+                <div style="display:flex">
+                    <a href="javascript:void(0);" rel="" class="canclbtn1 custom-width cancel tooltipsteredCanc tooltipstered" id="canclP1368752007" data-policy="{&quot;isCancellable&quot;:&quot;YES&quot;,&quot;conditions&quot;:[{&quot;cc&quot;:&quot;Rs. 1190&quot;,&quot;rp&quot;:&quot;85%&quot;,&quot;tl&quot;:&quot;Rs 1190 /- @ 85% refund&quot;,&quot;con&quot;:&quot;Before 22-Jan 22:50&quot;},{&quot;cc&quot;:&quot;Rs. 980&quot;,&quot;rp&quot;:&quot;70%&quot;,&quot;tl&quot;:&quot;Rs 980 /- @ 70% refund&quot;,&quot;con&quot;:&quot;Between 22-Jan 22:50 &amp; 23-Jan 16:50&quot;},{&quot;cc&quot;:&quot;Rs. 0&quot;,&quot;rp&quot;:&quot;0%&quot;,&quot;tl&quot;:&quot;Rs 0 /- @ 0% refund&quot;,&quot;con&quot;:&quot;After 23-Jan 16:50&quot;},{&quot;con&quot;:&quot;Refund amount is indicative.&quot;,&quot;cc&quot;:&quot;&quot;,&quot;rp&quot;:&quot;&quot;,&quot;tl&quot;:&quot;&quot;},{&quot;con&quot;:&quot;Additional Rs.15 per seat cancellation fee is applicable&quot;,&quot;cc&quot;:&quot;&quot;,&quot;rp&quot;:&quot;&quot;,&quot;tl&quot;:&quot;&quot;},{&quot;con&quot;:&quot;Partial cancellation is not allowed&quot;,&quot;cc&quot;:&quot;&quot;,&quot;rp&quot;:&quot;&quot;,&quot;tl&quot;:&quot;&quot;}],&quot;isPartialCancellable&quot;:&quot;NO&quot;}" data-api="714">Cancellation Policy</a>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="search-column2">
+            <div class="search-column2-col1" ng-style="pvtService.Amenities_list.length ==0 && {'top':'42px'}">
+                <p class="noseats AvailSts ng-binding one" availsts="11">11 Seats Available</p>
+            </div>
+            <!--<div class="clearfix">
+                ::Before
+                ::After
+            </div>
+            </div>
+            <div class="clearfix">
+                ::Before
+                ::After
+            </div>
+            </div>
+        </div>
+        <div class="col3 booksts clearfix">
+            <div class="col1">
+                <div style="float:right">
+                    <div>
+                        <h2>
+                            <span class="offer-bell-section">
+                                <label ng-show="pvtService.deals" class="ng-hide">
+                                    <img src="https://static.abhibus.com/img/edge/p-d-36.png" width="20px" alt="Notification">
+                                    <strike style="font-size:14px; color:#BBB;" class="ng-binding">1,400+</strike>
+                                </label>
+                            </span>
+                            <span>
+                                <label class="WebRupee"></label>
+                                <strong class="Ticket ng-binding" tickrate="1,400+">1400&nbsp;</strong>
+                            </span>
+                            <br>
+                            <span class="serv-onwards ng-scope" ng-if="isOnwards(pvtService.fare)">Onwards</span>
+                            <br>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="bgimg pt-3 pb-3">
+        <div class="alert alert-light shadow" style="border-radius: 15px;" role="alert">
+            <!--<div class="home">
+                <h1 class="head">Good Morning Travels</h1>
+            </div>-->
+            <div class="home1">
+                <h3 class="head1"><time>05:00AM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mayuri Travels </time></h3>
+                <p class="para">06:00 hours</p>
+                <h3 class="head2"><time>11:00AM</time></h3>
+                <p class="para">NON-AC Seater/Sleeper (2 + 1)
+                    <span style="color: red;"> 11 Seats Available
+                        <a href="{{url_for('index')}}"><button class="gool" type="submit">Select seat</button></a>
+                        
+                        <h5 class="head3">Price:670/-</h5>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-light shadow" style="border-radius: 15px;" role="alert">
+            <!--<div class="home">
+                <h1 class="head">Good Morning Travels</h1>
+            </div>-->
+            <div class="home1">
+                <h3 class="head1"><time>09:30AM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sai Srinivasa Travels </time></h3>
+                <p class="para">06:00 hours</p>
+                <h3 class="head2"><time>02:30PM</time></h3>
+                <p class="para">NON-AC Seater/Sleeper (2 + 1) 
+                    <span style="color: red;">13 Seats Available
+                        <a href="{{url_for('index')}}"><button class="gool" type="submit">Select seat</button></a>
+                        
+                        <h5 class="head3">Price:650/-</h5>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-light shadow" style="border-radius: 15px;" role="alert">
+            <!--<div class="home">
+                <h1 class="head">Good Morning Travels</h1>
+            </div>-->
+            <div class="home1">
+                <h3 class="head1"><time>11:00AM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Good Morning Travels</time></h3>
+                <p class="para">06:00 hours</p>
+                <h3 class="head2"><time>05:00PM</time></h3>
+                <p class="para">NON-AC Seater/Sleeper (2 + 1)
+                    <span style="color: red;">12 Seats Available
+                        <a href="{{url_for('index')}}"><button class="gool" type="submit">Select seat</button></a>
+                        
+                        <h5 class="head3">Price:675/-</h5>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-light shadow" style="border-radius: 15px;" role="alert">
+            <!--<div class="home">
+                <h1 class="head">Good Morning Travels</h1>
+            </div>-->
+            <div class="home1">
+                <h3 class="head1"><time>02:20PM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Amaravati Travels </time></h3>
+                <p class="para">06:00 hours</p>
+                <h3 class="head2"><time>07:40PM</time></h3>
+                <p class="para">NON-AC Seater/Sleeper (2 + 1)
+                    <span style="color: red;">14 Seats Available
+                        <a href="{{url_for('index')}}"><button class="gool" type="submit">Select seat</button></a>
+                        
+                        <h5 class="head3">Price: 600/-</h5>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-light shadow" style="border-radius: 15px;" role="alert">
+            <!--<div class="home">
+                <h1 class="head">Good Morning Travels</h1>
+            </div>-->
+            <div class="home1">
+                <h3 class="head1"><time>05:30PM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rainbow Tours and Travels </time></h3>
+                <p class="para">06:00 hours</p>
+                <h3 class="head2"><time>10:30AM</time></h3>
+                <p class="para">NON-AC Seater/Sleeper (2 + 1)
+                    <span style="color: red;">12 Seats Available
+                        <a href="{{url_for('index')}}"><button class="gool" type="submit">Select seat</button></a>
+                        
+                            <h5 class="head3">Price:625/-</h5>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!--<div class="alert alert-light shadow" role="alert">
+            A simple light alert—check it out!
+        </div>
+        <div class="alert alert-light shadow" role="alert">
+            A simple dark alert—check it out!
+        </div>-->
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/e2fc1f4675.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

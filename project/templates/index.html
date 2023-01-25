@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Booking</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <div class="bgimg">
+		<!-- NavBar-->
+
+		<div class="nav">
+			<nav class="navbar navbar-expand-lg  navbar-dark">
+				<a class="navbar-brand" href="#">
+					<h1>Bus booking</h1>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				  <div class="navbar-nav">
+					<a class="nav-link" href="/home.html" id="go">Home</a>
+					<!--<a class="nav-link" href="#" id="go">Features</a>-->
+					<a class="nav-link" href="#" id="go">BookNow</a>
+					<!--<a class="nav-link" href="#" id="go">Disabled</a>-->
+				  </div>
+				</div>
+					<a href="/login.html" target="_self"><button class="gool">Login&nbsp;&nbsp;<i class="fa-solid fa-right-to-bracket"></i></button></a>
+			</nav>
+		</div>
+
+		<!-- Home Section-->
+		<a href="/logout.html" target="_self"><button class="gool2 mt-3">Logout&nbsp;&nbsp;<i class="fa-solid fa-right-from-bracket"></i></button></a>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 align="center" class="head1 pt-5">
+						<i class="fa-solid fa-bus"></i>
+						Online Bus Tickets
+					</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="main" align="center">
+			<div class="col-4">
+				<div class="screen-wrap">
+					<section class="screen-home">
+						<div class="screen-home__form-wrap">
+							<div class="screen-home__form">
+								<form>
+									<div id="formdetail">
+										<div class="screen-home__location">
+											<div class="lable">
+												<figure class="icon"><img src="https://i.ibb.co/KwnYdXN/location.png"></figure>
+												<span class="text">Location Details</span>
+											</div>
+											<div class="input-wrap">
+												<div class="inside-wrap">
+													<!--<div class="rotate-btn">
+														<figure>
+															<img src="https://i.ibb.co/HPBrQkn/rotate-btn.png">
+														</figure>
+													</div>-->
+													<div class="from">
+														<span class="inside-lable">From</span><br>
+														<!--<input class="input" type="" name="" value="Vijayawada">-->
+														<select data-uis="language-picker-header" class="ui-select medium" id="lang-switcher-header-select" tabindex="0" placeholder="lang-switcher">
+															<option selected lang="en" value="/in/" data-language="se">Select</option>
+															<option  lang="en" value="/in/" data-language="vi">Vijayawada</option>
+															<option  lang="en" value="/in/" data-language="gn">Guntur</option>
+															<option  lang="en" value="/in/" data-language="hy">Hyderabad</option>
+															<option  lang="en" value="/in/" data-language="on">Ongole</option>
+															<option  lang="en" value="/in/" data-language="te">Tenali</option>
+															<!--<option selected lang="en" value="/in/" data-language="se">Select</option>-->
+														</select>
+													</div>
+													<div class="rotate-btn">
+														<figure>
+															<img src="https://i.ibb.co/HPBrQkn/rotate-btn.png" align="right">
+														</figure>
+													</div>
+													<div class="to">
+														<span class="inside-lable">To</span><br>
+														<!--<input class="input" type="" name="" value="Hyderabad">-->
+														<select data-uis="language-picker-header" class="ui-select medium" id="lang-switcher-header-select" tabindex="0" placeholder="lang-switcher">
+															<option selected lang="en" value="/in/" data-language="se">Select</option>
+															<option  lang="en" value="/in/" data-language="vi">Vijayawada</option>
+															<option  lang="en" value="/in/" data-language="gn">Guntur</option>
+															<option  lang="en" value="/in/" data-language="hy">Hyderabad</option>
+															<option  lang="en" value="/in/" data-language="on">Ongole</option>
+															<option  lang="en" value="/in/" data-language="te">Tenali</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="screen-home__date">
+											<div class="lable">
+												<figure class="icon"><img src="https://i.ibb.co/7N5zdnc/calendar.png"></figure>
+												<span class="text">Date Details</span>
+											</div>
+
+											<!--<li><a href="#"><ion-icon name="contacts" class="cont"></ion-icon>Classes</a></li>-->
+											<a class="box" href="#"><input class="calender" type="date"></a>
+											<!--<li><a href="#"><ion-icon name="notification" class="cont"></ion-icon>Notifications</a></li>-->
+											<!--<div class="input-wrap">
+												<div class="inside-wrap">
+													<div class="onward">
+														<input class="input" type="" name="" value="10">
+														<div class="mon-day">
+															<span class="month">Dec</span>
+															<span class="day">Wed</span>
+														</div>
+													</div>
+													<div class="return">
+														<input class="input" type="" name="" value="12">
+														<div class="mon-day">
+															<span class="month">Dec</span>
+															<span class="day">Fri</span>
+														</div>
+													</div>
+												</div>
+												<div class="inside-lable-wrap">
+													<div class="inside-lable-col">
+														<span class="inside-lable">Onward</span>
+													</div>
+													<div class="inside-lable-col">
+														<span class="inside-lable">Return</span>
+													</div>
+												</div>
+											</div>-->
+										</div>
+									</div>
+									<div class="screen-home__submit-wrap">
+										<span class="line"></span>
+										<div class="screen-home__bus-page" id="buspage">
+											<div class="screen-home__inside-wave">
+												
+											</div>
+											<figure class="screen-home__bus-arrow-wrap">
+												<!--<span class="screen-home__btn-blink"></span> -->
+												<a href="/home.html"><img src="https://i.ibb.co/nQ4khG8/arrow.png"></a>
+											</figure>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>	
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="https://kit.fontawesome.com/e2fc1f4675.js" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

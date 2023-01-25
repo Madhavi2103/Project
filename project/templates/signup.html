@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="sign up.css">
+    <script>
+        function validate() {
+            var firstname=document.getElementById("firstname").value
+            var lastname=document.getElementById("lastname").value
+            var email=document.getElementById("email").value
+            var mobile=document.getElementById("mobile").value
+            var female=document.getElementById("female")
+            var male=document.getElementById("male")
+            var password=document.getElementById("password").value
+            var password1=document.getElementById("password1")
+            var firstnameCheck=/^[a-zA-Z]+$/
+            var lastnameCheck=/^[a-zA-Z]+$/
+            var emailCheck=/^[a-zA-Z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+            var mobileCheck=/^[7-9]\d{9}$/
+            var passwordCheck=/^(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#$%&*-+]).{8}$/
+            var password1Check=/^(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#$%&*-+]).{8}$/
+            if(firstname==""||firstname.length<3){
+                alert("Please Enter Your Firstname")
+                return false;
+            }
+            if(!firstname.match(firstnameCheck)){
+                alert("Name must be carry only characters")
+                return false;
+            }
+            if(lastname==""||lastname.length<3){
+                alert("Please Enter Your Lastname")
+                return false;
+            }
+            if(!lastname.match(lastnameCheck)){
+                alert("Name must be carry only characters")
+                return false;
+            }
+            if(email==""||email.length<3){
+                alert("Email ID is mandatory")
+                return false;
+            }
+            if(!email.match(emailCheck)){
+                alert("Check your email properly")
+                return false;
+            }
+            if(mobile==""||mobile.length<10){
+                alert("Enter your mobile number")
+                return false;
+            }
+            if(!mobile.match(mobileCheck)){
+                alert("Enter your mobile number properly")
+                return false;
+            }
+            if(password==""){
+                alert("Enter your password")
+                return false;
+            }
+            if(!password.match(passwordCheck)){
+                alert("password carry uppercase ,lowercase,any digits,symbols")
+                return false;
+            }
+            if(password1==""){
+                alert("Enter your password")
+                return false;
+            }
+            if(!password1.match(password1Check)){
+                alert("password carry uppercase,lowercase,any digits,symbols")
+                return false;
+            }
+
+            return true
+        }
+    </script>
+    <style>
+        body{
+            background-image: url("https://media.istockphoto.com/id/1295087557/vector/wireframe-of-grand-tour-bus-moving-fast-on-a-dark-blue-background.jpg?s=612x612&w=0&k=20&c=xo2wAbT7MuRYaXWc7pSBclETiHg5ynzwu-iqgVDguDg=");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+   <div class="from1">
+    <h1 class="head1"><apan class="span1">ONLINE TICKET BOOKING</sapan></h1>
+    <form onsubmit="return validate()" action="login.html">
+        <p>
+            <input id="firstname" placeholder="Enter Your FirstName"/>
+        </p>
+        <p>
+            <input id="lastname" placeholder="Enter Your LastName"/>
+        </p>
+        <p>
+            <input id="email" placeholder="Enter Your email ID"/>
+        </p>
+        <p>
+            <input id="mobile" placeholder="Enter Your mobile number"/>
+        </p>
+        <!--<p>
+            <input type="text" placeholder="Gender">
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </p>-->
+        <p>
+            <input type="password" placeholder="Enter Your password" id="password"/>
+        </p>
+        <p>
+            <input type="password" placeholder="Enter Your confirm password" id="password"/>
+        </p>
+        <button class="btn2">Sign up</button>
+        <br>
+        
+        
+    </form>
+   </div>
+</body>
+</html>

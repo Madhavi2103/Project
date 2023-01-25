@@ -1,0 +1,106 @@
+script{
+    display: none;
+}
+.form1{
+    background-color:lightcoral;
+    margin-top: 120px;
+    margin-left: 290px;
+    height: 80vh;
+    text-align: center;
+    width: 65vw;
+    border-style: groove;
+    border-top-style: groove;
+    border-right-style: groove;
+    border-bottom-style: groove;
+    border-left-style: groove;
+    border-color: lightcyan;
+}
+.head1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 40px;
+    
+}
+h1{
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-start: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+form{
+    display: block;
+    margin-top: 0em;
+    text-align: center;
+}
+
+p{
+    font-size: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.btn{
+    width:70px;
+}
+input{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 25px;
+    width: 250px;
+    padding: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    bottom: none;
+
+}
+input[type="radio" i]{
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin:3px 3px 0px 5px;
+    border:initial;
+    text-align: left;
+
+}
+input{
+    writing-mode: horizontal-tb !important;
+    text-rendering:auto;
+    color:fieldtext;
+    letter-spacing:normal;
+    word-spacing:normal;
+    line-height:normal;
+    text-transform:none;
+    text-indent:0px;
+    text-shadow:none;
+    display:inline-block;
+    text-align:start;
+    -webkit-rtl-ordering:logical;
+
+
+}
+.btn2{
+    font-size: 30px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 5px;
+}
+.btn2:hover{
+    color: blue;
+    background-color: white;
+}
+
+.span1{
+    color:blue;
+}
