@@ -1,43 +1,52 @@
-from flask import Flask,flash,redirect,render_template,url_for,request,jsonify
+from flask import Flask,flash,redirect,render_template,url_for,request,jsonify,session
 from flaskext.mysql import MySQL
+from flask_session import Session
 from datetime import date
 from datetime import datetime
 import cryptography
+import stripe
 #from threading import Thread
 #from secretconfig import secret_key
 #from py_mail import mail_sender
 import smtplib
+stripe.api_key = "sk_test_51MMsHhSGj898WTbYXSx509gD14lhhXs8Hx8ipwegdytPB1Bkw0lJykMB0yGpCux95bdw1Gk9Gb9nJIWzPEEDxSqf00GEtCqZ8Y"
 from email.message import EmailMessage
 app=Flask(__name__)
-app.secret_key='jhj'
+app.secret_key='jr@547hhkghj'
 app.config['MYSQL_DATABASE_HOST'] ='localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD']='Madhu-03'
 app.config['MYSQL_DATABASE_DB']='BUS'
+app.config['SESSION_TYPE']='filesystem'
 mysql=MySQL(app)
-
+Session(app)
 @app.route('/')
 def home():
     return render_template('index1.html')
 @app.route('/login',methods=['GET','POST'])
 def login():
-    if request.method=='POST':
-        return render_template('login.html')
-        user=request.form['user_name']
-        password=request.form['password']
+    if request.method=="POST":
+        print(request.form)
+        user=request.form['user']
         cursor=mysql.get_db().cursor()
-        cursor.execute('SELECT user_name,password from user where user_name=%s password=%s',[user_name,password])
-        data=cursor.fetchall()[0]
-        userid=data[0]
-        admin_password=data[1]
+        cursor.execute('SELECT user_name from user')
+        users=cursor.fetchall()
+        password=request.form['password']
+        cursor.execute('select password from user where user_name=%s',[user])
+        data=cursor.fetchone()
         cursor.close()
-        return redirect(url_for('home'))
-    return render_template('login.html')
-    '''if user_name==user_name and password==password:
-        return redirect(url_for('home'))
-    else:
-        return redirect(url_for('login'))'''
-        #return redirect(url_for('index'))
+        if (user,) in users:
+            if password==data[0]:
+                session['name']=user
+                return redirect(url_for('home'))
+            else:
+                flash('Invalid Password')
+                return render_template('login.html')
+        else:
+            flash('Invalid user id')
+            flash('No account please singup')
+            return render_template('login.html')      
+    return render_template('login.html')        
 @app.route('/index1',methods=['GET','POST'])
 def home1():
     return render_template('index1.html')
@@ -51,7 +60,7 @@ def signup():
         password=request.form['password']
         #conn=mysql.connect()
         cursor=mysql.get_db().cursor()
-        cursor.execute('insert into user(user_name,email,mobile,password) values(%s,%s,%s,%s)',[user_name,email,mobile,password])
+        cursor.execute('insert ignore into user(user_name,email,mobile,password) values(%s,%s,%s,%s)',[user_name,email,mobile,password])
         mysql.get_db().commit()
         cursor.close()
         return redirect(url_for('login'))
@@ -137,9 +146,48 @@ def tenhyd():
 @app.route('/cards9')
 def tenong():
     return render_template('cards9.html')
-@app.route('/index')
-def index():
-    return render_template('index.html')
+@app.route("/confirmed/<travels>",methods=['GET','POST'])
+def confirm(travels):
+    Name=session['name']
+    if request.method=='POST':
+        Date=request.form['d1']
+        Timing=request.form['s11']
+        Number=request.form['s7']
+        Seats=request.form['s3']
+        return redirect(url_for('pay',Name=Name,travels=travels,Date=Date,Timing=Timing,Number=Number,Seats=Seats))
+    return render_template('book.html',title=travels,nam=Name)
+@app.route('/pay/<Name>/<travels>/<Date>/<Timing>/<Number>/<Seats>',methods=['GET','POST'])
+def pay(Name,travels,Date,Timing,Number,Seats):
+    checkout_session=stripe.checkout.Session.create(
+        success_url=request.host_url+url_for('success_pay',Name=Name,travels=travels,Date=Date,Timing=Timing,Number=Number,Seats=Seats),
+        line_items=[
+            {
+                'price_data': {
+                    'product_data': {
+                        'name': f'{travels}\n{Date}\n{Timing}\ )',
+                    },
+                    'unit_amount': 487*100,
+                    'currency': 'inr',
+                },
+                'quantity': Number,
+            },
+            ],
+        mode="payment",)
+    return redirect(checkout_session.url)
+@app.route('/success/<Name>/<travels>/<Date>/<Timing>/<Number>/<Seats>')
+def success_pay(Name,travels,Date,Timing,Number,Seats):
+    cursor=mysql.get_db().cursor()
+    cursor.execute("INSERT INTO booking(Name,travels,Date,Timings,Number,Seats) Values(%s,%s,%s,%s,%s,%s) " ,(Name,travels,Date,Timing,Number,Seats))
+    mysql.get_db().commit()
+    flash("Tickets Booked Successfully")
+    return redirect(url_for('home'))
+@app.route('/bookings')
+def bookings():
+    Name=session['name']
+    cursor=mysql.get_db().cursor()
+    cursor.execute('SELECT * from booking where name=%s',[gname])
+    data=cursor.fetchall()
+    return render_template('bookings.html',data=data)
 '''@app.route('/passenger',methods=['GET','POST'])
 def passenger():
     if request.method=='POST':
@@ -153,12 +201,6 @@ def passenger():
         mysql.get_db().commit()
         cursor.close()
         return render_template('passenger.html')'''
-@app.route('/payment',methods=['GET','POST'])
-def payment():
-    return render_template('payment.html')
-@app.route('/ticket',methods=['GET','POST'])
-def ticket():
-    return render_template('ticket.html')
 app.run(debug=True)
 
 

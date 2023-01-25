@@ -209,6 +209,15 @@
         }
     </script>
 </head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <center><b>{{message}}</b><center>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <body>
     <div class="nav">
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -222,11 +231,11 @@
               <div class="navbar-nav">
                 <a class="nav-link" href="{{url_for('index1')}}" id="go">Home</a>
                 <!--<a class="nav-link" href="#" id="go">Features</a>-->
-                <a class="nav-link" href="{{url_for('payment')}}" id="go">BookNow</a>
+                <a class="nav-link" href="#" id="go">BookNow</a>
                 <!--<a class="nav-link" href="#" id="go">Disabled</a>-->
               </div>
             </div>
-                <a href="{{url_for('login')}}"><button class="navgool" type="submit" id="submit">Login&nbsp;&nbsp;<i class="fa-solid fa-right-to-bracket"></i></button></a>
+                <!--<a href="{{url_for('login')}}"><button class="navgool" type="submit" id="submit">Login&nbsp;&nbsp;<i class="fa-solid fa-right-to-bracket"></i></button></a>-->
         </nav>
     </div>
     <div class="from1">
@@ -235,10 +244,10 @@
                 <div class="col-12">
                     <!--<img src="https://blog.railyatri.in/wp-content/uploads/2018/05/Cover-1-1.png" width="650px" height="500px" alt="" class="images">-->
                     <h1 class="head1"><span class="span1">BOOKING</span></h1>
-                    <form method="POST" onsubmit="validate()" action="{{url_for('index1')}}">
+                    <form method="POST" onsubmit="validate()">
                         <p>
                             <!--<label for="username">Username</label><br>-->
-                            <input id="username" name="user_name" placeholder="Username"/>
+                            <input type='' id="username" name="user" placeholder="Username"/>
                         </p>
                         <p>
                             <input type="password" name="password" placeholder="Enter password" id="password"/>
