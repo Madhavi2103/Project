@@ -22,7 +22,7 @@ mysql=MySQL(app)
 Session(app)
 @app.route('/')
 def home():
-    return render_template('index1.html')
+    return render_template('index.html')
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method=="POST":
@@ -47,9 +47,9 @@ def login():
             flash('No account please singup')
             return render_template('login.html')      
     return render_template('login.html')        
-@app.route('/index1',methods=['GET','POST'])
+@app.route('/index',methods=['GET','POST'])
 def home1():
-    return render_template('index1.html')
+    return render_template('index.html')
 @app.route('/signup',methods=['GET','POST'])
 def signup():
     if request.method=='POST':
@@ -68,9 +68,9 @@ def signup():
 @app.route('/logout')
 def logout():
     return render_template('logout.html')
-@app.route('/index1')
-def index1():
-    return render_template('index1.html')
+@app.route('/index')
+def index():
+    return render_template('index.html')
 @app.route('/classify',methods=['POST'])
 def choose():
     print(request.form)
@@ -154,19 +154,20 @@ def confirm(travels):
         Timing=request.form['s11']
         Number=request.form['s7']
         Seats=request.form['s3']
+        #price=request.form['price']
         return redirect(url_for('pay',Name=Name,travels=travels,Date=Date,Timing=Timing,Number=Number,Seats=Seats))
     return render_template('book.html',title=travels,nam=Name)
 @app.route('/pay/<Name>/<travels>/<Date>/<Timing>/<Number>/<Seats>',methods=['GET','POST'])
 def pay(Name,travels,Date,Timing,Number,Seats):
     checkout_session=stripe.checkout.Session.create(
-        success_url=request.host_url+url_for('success_pay',Name=Name,travels=travels,Date=Date,Timing=Timing,Number=Number,Seats=Seats),
+        success_url=request.host_url+url_for('success_pay',Name=Name,travels=travels,Date=Date,Timing=Timing,Number=Number,Seats=Seats,),
         line_items=[
             {
                 'price_data': {
                     'product_data': {
                         'name': f'{travels}\n{Date}\n{Timing}\ )',
                     },
-                    'unit_amount': 487*100,
+                    'unit_amount': 700*100,
                     'currency': 'inr',
                 },
                 'quantity': Number,
@@ -179,7 +180,7 @@ def success_pay(Name,travels,Date,Timing,Number,Seats):
     cursor=mysql.get_db().cursor()
     cursor.execute("INSERT INTO booking(Name,travels,Date,Timings,Number,Seats) Values(%s,%s,%s,%s,%s,%s) " ,(Name,travels,Date,Timing,Number,Seats))
     mysql.get_db().commit()
-    flash("Tickets Booked Successfully")
+    flash("Tickets Booked Successfully........")
     return redirect(url_for('home'))
 @app.route('/bookings')
 def bookings():
